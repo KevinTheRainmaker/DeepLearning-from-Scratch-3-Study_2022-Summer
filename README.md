@@ -61,6 +61,12 @@
 ex:<br>
 perf(DeZero): 속도 최적화
 
+### 추가: DeZero CHANGELOG
+DeZero를 본격적으로 구현하기 시작한 시점부터는 CHANGELOG.md를 잘 관리하는 것을 권장합니다.
+이와 관련된 내용은 다음을 참고하세요.
+
+https://dailyheumsi.tistory.com/266
+
 ----
 
 ## ✅ PR 규칙
