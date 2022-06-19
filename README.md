@@ -96,7 +96,7 @@ https://dailyheumsi.tistory.com/266
 ----
 
 ## ⭐️ 참여자
-<table>
+<table align='center'>
   <tr>
     <td align="center">
       <a href="https://github.com/KevinTheRainmaker"><img src="https://github.com/KevinTheRainmaker.png" width="200" alt=""/>
@@ -113,13 +113,6 @@ https://dailyheumsi.tistory.com/266
         </sub></a>
       </td>
     <td align="center">
-      <a href="https://github.com/willystumblr"><img src="https://github.com/willystumblr.png" width="200" alt=""/>
-        <sub>
-          <h3>Minseo Kim</h3>
-          <h5>GIST EECS 20th</h5>
-        </sub></a>
-      </td>
-    <td align="center">
       <a href="https://github.com/Reelect"><img src="https://github.com/Reelect.png" width="200" alt=""/>
         <sub>
           <h3>Jaesun Lee</h3>
@@ -129,4 +122,11 @@ https://dailyheumsi.tistory.com/266
   </tr>
 </table>
 
+<!--     <td align="center">
+      <a href="https://github.com/willystumblr"><img src="https://github.com/willystumblr.png" width="200" alt=""/>
+        <sub>
+          <h3>Minseo Kim</h3>
+          <h5>GIST EECS 20th</h5>
+        </sub></a>
+      </td> -->
 <br>
