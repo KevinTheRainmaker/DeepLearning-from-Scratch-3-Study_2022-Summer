@@ -1,3 +1,9 @@
+## v0.3.0 (2022-06-23)
+
+### Feat
+
+- **from-step13.ipynb-to-step16.ipynb**: notetaking and codes from step 13 to 16
+
 ## v0.2.0 (2022-06-19)
 
 ### Feat
