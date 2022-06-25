@@ -1,8 +1,4 @@
-import numpy as np
-
-class Variable:
-    def __init__(self, data):
-        self.data = data
+from step01 import *
 
 class Function:
     def __call__(self, input):
@@ -17,10 +13,11 @@ class Function:
 class Square(Function): # Function 클래스 상속
     def forward(self, x):
         return x ** 2
-    
-x = Variable(np.array(10))
-f = Square()
-y = f(x)
 
-print(type(y))
-print(y.data)
+if __name__ == '__main__':
+    x = Variable(np.array(10))
+    f = Square()
+    y = f(x)
+
+    print(type(y))
+    print(y.data)
