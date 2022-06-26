@@ -1,3 +1,11 @@
+## v0.4.0 (2022-06-26)
+
+### Feat
+
+- **step17.ipynb**: notetaking and code for step 17
+- **importing_tip.md**: wrote a tip for importing previous notebook
+- **from-step13.ipynb-to-step16.ipynb**: notetaking and codes from step 13 to 16
+
 ## v0.3.0 (2022-06-23)
 
 ### Feat
