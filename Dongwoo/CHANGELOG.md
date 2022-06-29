@@ -1,3 +1,9 @@
+## v0.7.2 (2022-06-29)
+
+### Fix
+
+- **gitignore**: delete ds store file
+
 ## v0.7.1 (2022-06-29)
 
 ### Fix
