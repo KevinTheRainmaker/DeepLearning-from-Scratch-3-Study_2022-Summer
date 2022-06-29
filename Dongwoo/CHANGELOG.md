@@ -1,3 +1,9 @@
+## v0.8.0 (2022-06-29)
+
+### Feat
+
+- **sample.txt**: deleted unnecessary text file
+
 ## v0.7.2 (2022-06-29)
 
 ### Fix
