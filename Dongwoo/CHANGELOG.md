@@ -1,3 +1,9 @@
+## v0.6.0 (2022-06-29)
+
+### Feat
+
+- **step-19**: notetaking and codes for step 19
+
 ## v0.5.0 (2022-06-28)
 
 ### Feat
