@@ -1,3 +1,9 @@
+## v0.7.1 (2022-06-29)
+
+### Fix
+
+- **.gitignore**: added gitignore
+
 ## v0.7.0 (2022-06-29)
 
 ### Feat
