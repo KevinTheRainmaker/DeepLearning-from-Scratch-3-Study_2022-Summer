@@ -1,3 +1,9 @@
+## v0.10.0 (2022-07-04)
+
+### Feat
+
+- **notetaking-and-code-for-step-22**: notetaking and code for step 22
+
 ## v0.9.0 (2022-07-01)
 
 ### Feat
