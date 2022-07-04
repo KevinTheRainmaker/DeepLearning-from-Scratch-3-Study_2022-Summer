@@ -1,3 +1,9 @@
+## v0.10.1 (2022-07-04)
+
+### Perf
+
+- **dezero**: made a package of dezero following step 23
+
 ## v0.10.0 (2022-07-04)
 
 ### Feat
