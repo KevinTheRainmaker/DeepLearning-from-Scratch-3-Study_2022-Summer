@@ -1,3 +1,52 @@
+## v0.8.0 (2022-06-29)
+
+### Feat
+
+- **sample.txt**: deleted unnecessary text file
+
+## v0.7.2 (2022-06-29)
+
+### Fix
+
+- **gitignore**: delete ds store file
+
+## v0.7.1 (2022-06-29)
+
+### Fix
+
+- **.gitignore**: added gitignore
+
+## v0.7.0 (2022-06-29)
+
+### Feat
+
+- **step-20**: notetaking and codes for step 20
+
+## v0.6.0 (2022-06-29)
+
+### Feat
+
+- **step-19**: notetaking and codes for step 19
+
+## v0.5.0 (2022-06-28)
+
+### Feat
+
+- **step-18**: notetaking and codes for step18
+- **step04**: 수치 미분
+
+### Perf
+
+- **py-files-and-tip-file**: apply some tips about importing
+
+## v0.4.0 (2022-06-26)
+
+### Feat
+
+- **step17.ipynb**: notetaking and code for step 17
+- **importing_tip.md**: wrote a tip for importing previous notebook
+- **from-step13.ipynb-to-step16.ipynb**: notetaking and codes from step 13 to 16
+
 ## v0.3.0 (2022-06-23)
 
 ### Feat
