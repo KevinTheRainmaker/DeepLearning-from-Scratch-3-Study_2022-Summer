@@ -1,3 +1,9 @@
+## v0.12.1 (2022-07-08)
+
+### Fix
+
+- **core_simple.py**: sub was added
+
 ## v0.12.0 (2022-07-08)
 
 ### Feat
