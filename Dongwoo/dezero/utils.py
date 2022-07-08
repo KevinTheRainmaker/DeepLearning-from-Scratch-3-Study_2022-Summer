@@ -14,7 +14,7 @@ def _dot_var(v, verbose=False): # underbar in the function name indicates that t
     name='' if v.name is None else v.name
     if verbose and v.data is not None:
         if v.name is not None:
-            name+=':'
+            name+=': '
         name+= str(v.shape)+' '+str(v.dtype)
     return dot_var.format(id(v),name)
             
@@ -49,7 +49,7 @@ def get_dot_graph(output, verbose=True):
             
             if x.creator is not None:
                 add_func(x.creator)
-    return 'diagraph g {\n'+txt+'}'
+    return 'digraph g {\n'+txt+'}'
 
 def plot_dot_graph(output, verbose=True, to_file='graph.png'):
     dot_graph=get_dot_graph(output, verbose)
