@@ -6,6 +6,8 @@
 
 import numpy as np
 from dezero import Variable
+from dezero.utils import plot_dot_graph
+
 def sphere(x,y):
     z=x**2+y**2
     return z
@@ -41,7 +43,13 @@ x=Variable(np.array(1.0))
 y=Variable(np.array(1.0))
 z=goldstein(x,y)
 z.backward()
-print(x.grad, y.grad)
+
+x.name='x'
+y.name='y'
+z.name='z'
+plot_dot_graph(z, verbose=False, to_file='goldstein.png')
+
+
 
 
 
