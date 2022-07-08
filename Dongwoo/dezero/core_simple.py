@@ -159,8 +159,7 @@ class Pow(Function):
         gx=c*x**(c-1)*gy
         return gx
     
-@contextlib.contextmanager #decorator to understand the context
-    
+@contextlib.contextmanager 
 def using_config(name, value):
     old_value=getattr(Config, name)
     setattr(Config, name, value)
@@ -203,7 +202,7 @@ def rsub(x0,x1):
 
 def div(x0,x1):
     x1=as_array(x1)
-    return Div()(x1,x0)
+    return Div()(x0,x1)
 
 def rdiv(x0,x1):
     x1=as_array(x1)
@@ -218,6 +217,7 @@ def setup_variable():
     Variable.__mul__=mul
     Variable.__rmul__=mul
     Variable.__neg__=neg
+    Variable.__sub__=sub
     Variable.__rsub__=rsub
     Variable.__truediv__=div
     Variable.__rtruediv__=rdiv

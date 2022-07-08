@@ -66,6 +66,12 @@ def plot_dot_graph(output, verbose=True, to_file='graph.png'):
     cmd='dot {} -T {} -o {}'.format(graph_path, extension, to_file)
     subprocess.run(cmd, shell=True)
 
+    
+    try:
+        from IPython import display
+        return display.Image(filename=to_file)
+    except:
+        pass
 # In[7]:
 
 
