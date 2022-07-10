@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
 import os
 import subprocess
 import numpy as np
@@ -73,12 +69,6 @@ def plot_dot_graph(output, verbose=True, to_file='graph.png'):
         return display.Image(filename=to_file)
     except:
         pass
-# In[7]:
-
-
-
-
-# In[ ]:
 
 
 
