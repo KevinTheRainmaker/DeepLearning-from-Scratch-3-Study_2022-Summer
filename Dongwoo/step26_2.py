@@ -8,29 +8,29 @@ import numpy as np
 from dezero import Variable
 from dezero.utils import plot_dot_graph
 
-def sphere(x,y):
-    z=x**2+y**2
-    return z
+# def sphere(x,y):
+#     z=x**2+y**2
+#     return z
 
-x=Variable(np.array(1.0))
-y=Variable(np.array(1.0))
-z=sphere(x,y)
-z.backward()
-print(x.grad, y.grad)
-
-
-# In[3]:
+# x=Variable(np.array(1.0))
+# y=Variable(np.array(1.0))
+# z=sphere(x,y)
+# z.backward()
+# print(x.grad, y.grad)
 
 
-def matyas(x,y):
-    z=0.26*(x**2+y**2)-0.48*x*y
-    return z
+# # In[3]:
 
-x=Variable(np.array(1.0))
-y=Variable(np.array(1.0))
-z=matyas(x,y)
-z.backward()
-print(x.grad, y.grad)
+
+# def matyas(x,y):
+#     z=0.26*(x**2+y**2)-0.48*x*y
+#     return z
+
+# x=Variable(np.array(1.0))
+# y=Variable(np.array(1.0))
+# z=matyas(x,y)
+# z.backward()
+# print(x.grad, y.grad)
 
 
 # In[ ]:
