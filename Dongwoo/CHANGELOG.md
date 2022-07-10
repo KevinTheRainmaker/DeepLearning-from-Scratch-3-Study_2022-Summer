@@ -1,3 +1,79 @@
+## v0.14.1 (2022-07-10)
+
+### Refactor
+
+- **step26.ipynb**: _dot_var function that does not work in the notebook
+
+## v0.14.0 (2022-07-10)
+
+### Refactor
+
+- **test26.py-sample.dot**: deleted unnecessary files
+
+### Feat
+
+- **step09**: 함수를 더 편리하게
+- **step08**: 재귀에서 반복문으로
+- **step07**: 역전파 자동화
+
+## v0.13.2 (2022-07-10)
+
+### Fix
+
+- **utils.py**: fixed from == to +=
+
+## v0.13.1 (2022-07-10)
+
+### Refactor
+
+- **step26_2.py**: deleted matyas and sphere function that are not used
+
+## v0.13.0 (2022-07-08)
+
+### Fix
+
+- **utils.py**: fixed typo
+
+### Feat
+
+- **step06**: 수동 역전파
+
+## v0.12.1 (2022-07-08)
+
+### Fix
+
+- **core_simple.py**: sub was added
+
+## v0.12.0 (2022-07-08)
+
+### Feat
+
+- **step-26**: codes for step 26
+
+## v0.11.0 (2022-07-04)
+
+### Feat
+
+- **step24.py**: step 24 code
+
+## v0.10.1 (2022-07-04)
+
+### Perf
+
+- **dezero**: made a package of dezero following step 23
+
+## v0.10.0 (2022-07-04)
+
+### Feat
+
+- **notetaking-and-code-for-step-22**: notetaking and code for step 22
+
+## v0.9.0 (2022-07-01)
+
+### Feat
+
+- **step-21**: notetaking and codes for step 21
+
 ## v0.8.0 (2022-06-29)
 
 ### Feat
