@@ -37,13 +37,14 @@ def get_dot_graph(output, verbose=True):
     def add_func(f):
         if f not in seen_set:
             funcs.append(f)
+#             funcs.sort(keys=lambda x: x.generation)
             seen_set.add(f)
     add_func(output.creator)
     txt+=_dot_var(output, verbose)
     
     while funcs:
         func=funcs.pop()
-        txt==_dot_func(func)
+        txt+=_dot_func(func)
         for x in func.inputs:
             txt+=_dot_var(x,verbose)
             
