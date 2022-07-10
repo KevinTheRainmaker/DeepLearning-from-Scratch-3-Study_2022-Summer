@@ -1,3 +1,15 @@
+## v0.14.0 (2022-07-10)
+
+### Refactor
+
+- **test26.py-sample.dot**: deleted unnecessary files
+
+### Feat
+
+- **step09**: 함수를 더 편리하게
+- **step08**: 재귀에서 반복문으로
+- **step07**: 역전파 자동화
+
 ## v0.13.2 (2022-07-10)
 
 ### Fix
