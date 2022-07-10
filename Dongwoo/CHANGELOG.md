@@ -1,3 +1,9 @@
+## v0.14.1 (2022-07-10)
+
+### Refactor
+
+- **step26.ipynb**: _dot_var function that does not work in the notebook
+
 ## v0.14.0 (2022-07-10)
 
 ### Refactor
