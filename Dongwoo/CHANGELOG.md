@@ -1,3 +1,9 @@
+## v0.13.1 (2022-07-10)
+
+### Refactor
+
+- **step26_2.py**: deleted matyas and sphere function that are not used
+
 ## v0.13.0 (2022-07-08)
 
 ### Fix
