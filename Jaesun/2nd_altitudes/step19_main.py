@@ -1,9 +1,28 @@
 import numpy as np
 import unittest
 import weakref
+import contextlib
 
 # 자동 역전파 계산을 위한 Creator 부분 추가
 # Variable에 역전파 계산 추가
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config('enable_backprop', False)
 
 
 def as_array(x):
@@ -13,21 +32,47 @@ def as_array(x):
 
 
 class Variable:
-    def __init__(self, data):
+    def __init__(self, data, name=None):
         if data is not None:
             if not isinstance(data, np.ndarray):
                 raise TypeError('{}은(는) 지원하지 않습니다.'.format(type(data)))
 
         self.data = data
+        self.name = name
         self.grad = None
         self.creator = None
         self.generation = 0
+
+    def __len__(self):
+        return len(self.data)
+
+    def __repr__(self):
+        if self.data is None:
+            return 'variable(None)'
+        p = str(self.data).replace('\n', '\n' + ' ' * 9)
+        return 'variable(' + p + ')'
+
+    @property
+    def shape(self):
+        return self.data.shape
+
+    @property
+    def ndim(self):
+        return self.data.ndim
+
+    @property
+    def size(self):
+        return self.data.size
+
+    @property
+    def dtype(self):
+        return self.data.dtype
 
     def set_creator(self, func):
         self.creator = func
         self.generation = func.generation + 1
 
-    def backward(self):
+    def backward(self, retain_grad=False):
         if self.grad is None:
             self.grad = np.ones_like(self.data)
 
@@ -59,6 +104,10 @@ class Variable:
                 if x.creator is not None:
                     add_func(x.creator)
 
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None # y는 약한참조
+
     def cleargrad(self):
         self.grad = None
 
@@ -75,11 +124,13 @@ class Function:
             ys = (ys,)
         outputs = [Variable(as_array(y)) for y in ys]
 
-        self.generation = max([x.generation for x in inputs])
-        for output in outputs:
-            output.set_creator(self)
-        self.inputs = inputs
-        self.outputs = [weakref.ref(output) for output in outputs]
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+                self.inputs = inputs
+                self.outputs = [weakref.ref(output) for output in outputs]
+
         return outputs if len(outputs) > 1 else outputs[0]
 
     def forward(self, x):

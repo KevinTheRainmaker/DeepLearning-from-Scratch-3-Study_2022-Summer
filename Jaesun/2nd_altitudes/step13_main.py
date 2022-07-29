@@ -3,6 +3,14 @@ import unittest
 
 # 자동 역전파 계산을 위한 Creator 부분 추가
 # Variable에 역전파 계산 추가
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
 class Variable:
     def __init__(self, data):
         if data is not None:
@@ -23,11 +31,18 @@ class Variable:
         funcs = [self.creator]
         while funcs:
             f = funcs.pop()
-            x, y = f.input, f.output
-            x.grad = f.backward(y.grad)
+            gys = [output.grad for output in f.outputs]
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
 
-            if x.creator is not None:
-                funcs.append(x.creator)
+            for x, gx in zip(f.inputs, gxs):
+                x.grad = gx
+
+                if x.creator is not None:
+                    funcs.append(x.creator)
+
+
 
 
 # 역전파 확인하는 함수 추가
@@ -41,8 +56,8 @@ class Function:
 
         for output in outputs:
             output.set_creator(self)
-        self.input = inputs
-        self.output = outputs
+        self.inputs = inputs
+        self.outputs = outputs
         return outputs if len(outputs) > 1 else outputs[0]
 
     def forward(self, x):
@@ -51,26 +66,37 @@ class Function:
     def backward(self, gy):
         raise NotImplementedError()
 
+# Function 확장=========================================================================================================
+
 
 class Add(Function):
     def forward(self, x0, x1):
         y = x0 + x1
         return y
 
+    def backward(self, gy):
+        return gy, gy
+
+
 def add(x0, x1):
     return Add()(x0, x1)
 
 
-# Square, Exp 쿨래스 추가 구현
+
 class Square(Function):
     def forward(self, x):
         y = x ** 2
         return y
 
     def backward(self, gy):
-        x = self.input.data
+        x = self.inputs[0].data
         gx = 2 * x * gy
         return gx
+
+
+def square(x):
+    f = Square()
+    return f(x)
 
 
 class Exp(Function):
@@ -84,19 +110,10 @@ class Exp(Function):
         return gx
 
 
-def square(x):
-    f = Square()
-    return f(x)
-
-
 def exp(x):
     f = Exp()
     return f(x)
 
-def as_array(x):
-    if np.isscalar(x):
-        return np.array(x)
-    return x
 
 
 def numerical_diff(f, x, eps=1e-4):

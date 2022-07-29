@@ -32,16 +32,18 @@ class Variable:
 
 # 역전파 확인하는 함수 추가
 class Function:
-    def __call__(self, inputs):
+    def __call__(self, *inputs): # 통쨰로 받아버려~
         xs = [x.data for x in inputs]
-        ys = self.forward(xs)
+        ys = self.forward(*xs) # 별표를 붙여 언팩
+        if not isinstance(ys, tuple): # 튜플이 아닌 경우 추가 지원 ㄱ
+            ys = (ys,)
         outputs = [Variable(as_array(y)) for y in ys]
 
         for output in outputs:
             output.set_creator(self)
         self.input = inputs
         self.output = outputs
-        return outputs
+        return outputs if len(outputs) > 1 else outputs[0]
 
     def forward(self, x):
         raise NotImplementedError()
@@ -51,10 +53,12 @@ class Function:
 
 
 class Add(Function):
-    def forward(self, xs):
-        x0, x1 = xs
+    def forward(self, x0, x1):
         y = x0 + x1
-        return (y,)
+        return y
+
+def add(x0, x1):
+    return Add()(x0, x1)
 
 
 # Square, Exp 쿨래스 추가 구현

@@ -1,6 +1,13 @@
 import numpy as np
 import unittest
 
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
 # 자동 역전파 계산을 위한 Creator 부분 추가
 # Variable에 역전파 계산 추가
 class Variable:
@@ -60,6 +67,11 @@ class Square(Function):
         return gx
 
 
+def square(x):
+    f = Square()
+    return f(x)
+
+
 class Exp(Function):
     def forward(self, x):
         y = np.exp(x)
@@ -71,19 +83,10 @@ class Exp(Function):
         return gx
 
 
-def square(x):
-    f = Square()
-    return f(x)
-
-
 def exp(x):
     f = Exp()
     return f(x)
 
-def as_array(x):
-    if np.isscalar(x):
-        return np.array(x)
-    return x
 
 
 def numerical_diff(f, x, eps=1e-4):
