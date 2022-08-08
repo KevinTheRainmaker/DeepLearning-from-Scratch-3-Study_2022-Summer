@@ -30,3 +30,20 @@ ref: https://stackoverflow.com/questions/20186344/importing-an-ipynb-file-from-a
 해당 파이썬 파일 내 함수는 물론 클래스, 외부 라이브러리까지 모두 불러올 수 있다.
 
 단, 실행부분은 `if __name__=='__main__'`과 같은 식으로 작성해서 이전 파일의 출력이 중첩되지 않도록 하자.
+
+## 다른 디렉토리 내 파이썬 파일을 모듈로 불러오는 방법
+
+다음과 같은 폴더 구조에서, main.py는 module1.py를 그냥 불러오지 못한다.
+
+- Folder_1
+  - main.py
+- Folder_2
+  - module1.py
+
+이 경우 다음 명령어를 통해 path를 설정해주면 된다.
+
+> export PYTHONPATH='path_to_directory'
+
+윈도우의 경우 다음 명령어를 사용하자.
+
+> SET PYTHONPATH="path_to_directory"
