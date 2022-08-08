@@ -1,4 +1,3 @@
-from re import X
 from memory_profiler import profile
 import numpy as np
 from queue import PriorityQueue
