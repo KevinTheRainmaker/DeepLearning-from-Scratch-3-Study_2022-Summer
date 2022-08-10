@@ -1,3 +1,15 @@
+## v0.3.0 (2022-08-10)
+
+### Feat
+
+- **utils.py**: plot dot graph using graphviz
+- **step25**: 계산 그래프 시각화(1)
+- **step24**: 복잡한 함수의 미분
+
+### Fix
+
+- **step24**: to import as a module
+
 ## v0.2.0 (2022-08-08)
 
 ### Feat
