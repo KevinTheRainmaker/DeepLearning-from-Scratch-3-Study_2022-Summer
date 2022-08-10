@@ -1,24 +1,23 @@
-from distutils import extension
-import numpy as np
-from dezero import Variable
-
 import os
-import subprocess
+import subprocess  # 파이썬 외부 프로세스 입출력 및 실행 제어 라이브러리
 
 
 def _dot_var(v, verbose=False):  # 로컬에서만 사용할 함수: 외부에서 부를 수 없다
-    dot_var = '{} [label="{}", color=orange, style=filled]\n'  # 변수 노드 프레임
+    # 변수 노드 프레임
+    dot_var = '{} [label="{}", color=orange, style=filled]\n'
 
-    name = '' if v.name is None else v.name
+    name = '' if v.name is None else v.name  # name이 None이면 빈 str로 변환하여 포맷을 통일
 
     if verbose and v.data is not None:
         if v.name is not None:
             name += ': '
+        # verbose를 True로 설정 시 name에 shape와 type을 추가
         name += str(v.shape) + ' ' + str(v.dtype)
     return dot_var.format(id(v), name)
 
 
 def _dot_func(f):
+    # 함수 노드 프레임
     dot_func = '{} [label="{}", color=lightblue, style=filled, shape=box]\n'
     txt = dot_func.format(id(f), f.__class__.__name__)  # 계산 함수 클래스명을 노드 name으로
 
