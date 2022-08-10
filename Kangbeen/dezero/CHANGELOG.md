@@ -1,3 +1,10 @@
+## v0.4.0 (2022-08-10)
+
+### Feat
+
+- **step26**: add description about subprocess module
+- **step26**: 계산 그래프 시각화(2)
+
 ## v0.3.0 (2022-08-10)
 
 ### Feat
