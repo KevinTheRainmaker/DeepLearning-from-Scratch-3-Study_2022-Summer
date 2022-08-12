@@ -2,7 +2,6 @@ import numpy as np
 
 from dezero import Variable
 from dezero.utils import plot_dot_graph
-from dezero.utils import get_dot_graph
 
 from step24 import goldstein
 
