@@ -25,7 +25,7 @@ def _dot_func(f):
     for x in f.inputs:
         txt += dot_edge.format(id(x), id(f))
     for y in f.outputs:
-        txt += dot_edge.format(id(x), id(y()))  # y는 weakref
+        txt += dot_edge.format(id(f), id(y()))  # y는 weakref
     return txt
 
 
