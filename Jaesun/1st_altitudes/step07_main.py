@@ -11,7 +11,7 @@ class Variable:
     def set_creator(self, func):
         self.creator = func
 
-    def backward(self):
+    def backward(self): # backward method 추가
         f = self.creator
         if f is not None:
             x = f.input

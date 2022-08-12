@@ -32,20 +32,29 @@ class Variable:
 
 # 역전파 확인하는 함수 추가
 class Function:
-    def __call__(self, input):
-        x = input.data
-        y = self.forward(x)
-        output = Variable(as_array(y))
-        output.set_creator(self)  # 출력 변수의 창조자 생성
-        self.input = input  # backward에 활용하기 위해서 작성
-        self.output = output  # 출력도 저장
-        return output
+    def __call__(self, inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(xs)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        for output in outputs:
+            output.set_creator(self)
+        self.input = inputs
+        self.output = outputs
+        return outputs
 
     def forward(self, x):
         raise NotImplementedError()
 
     def backward(self, gy):
         raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, xs):
+        x0, x1 = xs
+        y = x0 + x1
+        return (y,)
 
 
 # Square, Exp 쿨래스 추가 구현
